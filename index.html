@@ -14,13 +14,13 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #0a0a0a;
+      background: #000000;
       color: #ffffff;
       scroll-behavior: smooth;
     }
 
     nav {
-      background: #111;
+      background: #000000;
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
@@ -72,7 +72,7 @@
     .mobile-nav {
       display: none;
       flex-direction: column;
-      background: #111;
+      background: #000000;
       position: fixed;
       top: 60px;
       right: 0;
@@ -111,6 +111,7 @@
       min-height: 100vh;
       padding: 6rem 2rem;
       text-align: center;
+      background: #000000;
     }
 
     section.active {
@@ -118,50 +119,32 @@
     }
 
     #home {
-      background: linear-gradient(135deg, #111, #1f1f1f);
-      position: relative;
-      overflow-x: hidden;
+      background: #000000;
     }
 
     .hero-text {
-      position: relative;
-      z-index: 2;
       margin-bottom: 2rem;
     }
 
-    .hero-image-wrapper {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
+    .hero-content {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
     }
 
-    .hero-image-wrapper img {
+    .hero-content img {
+      max-width: 400px;
       width: 100%;
       height: auto;
-      display: block;
-      transition: transform 1s ease;
-    }
-
-    .content-box {
-      background: rgba(26, 26, 26, 0.9);
-      padding: 2rem;
       border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,255,204,0.1);
-      max-width: 700px;
-      margin: 0 auto;
-      transform: translateY(100px);
-      opacity: 0;
-      transition: all 1s ease;
     }
 
-    .show-content {
-      transform: translateY(0);
-      opacity: 1;
-    }
-
-    #about { background: #181818; }
-    #projects { background: #1c1c1c; }
-    #contact { background: #222; }
+    #about { background: #000000; }
+    #projects { background: #000000; }
+    #contact { background: #000000; }
 
     h1, h2 {
       font-family: 'Raleway', sans-serif;
@@ -173,6 +156,16 @@
       border-bottom: 2px solid #00ffcc;
       display: inline-block;
       padding-bottom: 0.5rem;
+    }
+
+    .content-box {
+      background: rgba(26, 26, 26, 0.9);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,255,204,0.1);
+      max-width: 700px;
+      margin: 0 auto;
+      flex: 1;
     }
 
     p {
@@ -239,11 +232,11 @@
     <div class="hero-text">
       <h1>Redesigning Mobility</h1>
     </div>
-    <div class="hero-image-wrapper">
+    <div class="hero-content">
+      <div class="content-box">
+        <p>The Spokeless Wheelchair Project is an innovative mobility solution focused on accessibility, compactness, and style — designed for independence and comfort.</p>
+      </div>
       <img src="images/wheelchair-concept.jpg" alt="Wheelchair Drawing">
-    </div>
-    <div class="content-box" id="homeContent">
-      <p>The Spokeless Wheelchair Project is an innovative mobility solution focused on accessibility, compactness, and style — designed for independence and comfort.</p>
     </div>
   </section>
 
@@ -257,7 +250,7 @@
   <section id="projects">
     <h2>Projects</h2>
     <div class="content-box">
-      <p>Presenting the spokeless wheelchair. An innovative solution to help non-ambulatory people move without additional help. The wheelchair has a hubless wheel system; the wheels are supported only by the outer tire and rotate around a stationary inner rim. This eliminates spoke-related hazards like entanglement of clothes and other injuries. The design features quality-of-life improvements like storage bins and a tray table, along with an internal folding mechanism for easy transport and storage. It is designed to improve stability, mobility, and user comfort. </p>
+      <p>Presenting the spokeless wheelchair. An innovative solution to help non-ambulatory people move without additional help. The wheelchair has a hubless wheel system; the wheels are supported only by the outer tire and rotate around a stationary inner rim. This eliminates spoke-related hazards like entanglement of clothes and other injuries. The design features quality-of-life improvements like storage bins and a tray table, along with an internal folding mechanism for easy transport and storage. It is designed to improve stability, mobility, and user comfort.</p>
     </div>
   </section>
 
@@ -294,15 +287,6 @@
       const style = window.getComputedStyle(desktopNav);
       if (style.display !== 'none') {
         mobileNav.style.display = 'none';
-      }
-    });
-
-    // Show content on scroll
-    window.addEventListener('scroll', () => {
-      const content = document.getElementById('homeContent');
-      const rect = content.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 100) {
-        content.classList.add('show-content');
       }
     });
   </script>
