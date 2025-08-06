@@ -19,7 +19,6 @@
       scroll-behavior: smooth;
     }
 
-    /* NAVIGATION */
     nav {
       background: #111;
       padding: 1rem 2rem;
@@ -57,7 +56,6 @@
       color: #fff;
     }
 
-    /* Hamburger styles */
     .hamburger {
       display: none;
       flex-direction: column;
@@ -110,7 +108,7 @@
 
     section {
       display: none;
-      height: 100vh;
+      min-height: 100vh;
       padding: 6rem 2rem;
       text-align: center;
     }
@@ -119,7 +117,27 @@
       display: block;
     }
 
-    #home { background: linear-gradient(135deg, #111, #1f1f1f); }
+    #home {
+      background: linear-gradient(135deg, #111, #1f1f1f);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: auto;
+      opacity: 0.2;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .hero-text {
+      position: relative;
+      z-index: 1;
+    }
+
     #about { background: #181818; }
     #projects { background: #1c1c1c; }
     #contact { background: #222; }
@@ -137,7 +155,7 @@
     }
 
     .content-box {
-      background: #1a1a1a;
+      background: rgba(26, 26, 26, 0.9);
       padding: 2rem;
       border-radius: 12px;
       box-shadow: 0 0 10px rgba(0,255,204,0.1);
@@ -182,7 +200,6 @@
   </style>
 </head>
 <body>
-
   <nav>
     <div class="nav-title">Spokeless Wheelchair</div>
     <ul>
@@ -207,9 +224,12 @@
   </div>
 
   <section id="home" class="active">
-    <h1>Home</h1>
-    <div class="content-box">
-      <p>Building cool stuff on the web and leveling up.</p>
+    <img src="images/wheelchair-concept.jpg" alt="Wheelchair Drawing" class="hero-image">
+    <div class="hero-text">
+      <h1>Redesigning Mobility</h1>
+      <div class="content-box">
+        <p>The Spokeless Wheelchair Project is an innovative mobility solution focused on accessibility, compactness, and style — designed for independence and comfort.</p>
+      </div>
     </div>
   </section>
 
@@ -254,23 +274,16 @@
       const menu = document.getElementById("mobileNav");
       menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
     }
-    
-    // This new code fixes the bug by checking the actual display style of the desktop menu
+
     window.addEventListener('resize', function() {
-        const desktopNav = document.querySelector('nav ul');
-        const mobileNav = document.getElementById("mobileNav");
-        
-        // Use getComputedStyle to check the actual rendered CSS
-        const style = window.getComputedStyle(desktopNav);
-        
-        // If the desktop nav is visible (display is not 'none'), hide the mobile menu
-        if (style.display !== 'none') {
-            mobileNav.style.display = 'none';
-        }
+      const desktopNav = document.querySelector('nav ul');
+      const mobileNav = document.getElementById("mobileNav");
+      const style = window.getComputedStyle(desktopNav);
+      if (style.display !== 'none') {
+        mobileNav.style.display = 'none';
+      }
     });
   </script>
-
 </body>
 </html>
-
 
