@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ankith Girish | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <style>
     * {
@@ -17,6 +16,7 @@
       font-family: 'Orbitron', sans-serif;
       background: #0a0a0a;
       color: #ffffff;
+      scroll-behavior: smooth;
     }
 
     nav {
@@ -25,8 +25,9 @@
       display: flex;
       justify-content: center;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
-      position: sticky;
+      position: fixed;
       top: 0;
+      width: 100%;
       z-index: 1000;
     }
 
@@ -41,6 +42,7 @@
       text-decoration: none;
       font-weight: bold;
       transition: 0.3s;
+      cursor: pointer;
     }
 
     nav a:hover {
@@ -48,35 +50,51 @@
     }
 
     section {
+      display: none;
+      height: 100vh;
       padding: 6rem 2rem;
       text-align: center;
     }
 
-    #home {
-      background: linear-gradient(135deg, #111, #1f1f1f);
+    section.active {
+      display: block;
     }
 
-    #about, #projects, #contact {
-      background: #121212;
-    }
+    #home { background: linear-gradient(135deg, #111, #1f1f1f); }
+    #about { background: #181818; }
+    #projects { background: #1c1c1c; }
+    #contact { background: #222; }
 
     h1, h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
       color: #00ffcc;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-bottom: 2px solid #00ffcc;
+      display: inline-block;
+      padding-bottom: 0.5rem;
+    }
+
+    .content-box {
+      background: #1a1a1a;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,255,204,0.1);
+      max-width: 700px;
+      margin: 2rem auto;
     }
 
     p {
       font-size: 1.1rem;
-      max-width: 600px;
-      margin: 0 auto;
+      line-height: 1.6;
     }
 
     form {
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      max-width: 400px;
+      max-width: 500px;
       margin: 2rem auto;
     }
 
@@ -104,38 +122,58 @@
   </style>
 </head>
 <body>
+
   <nav>
     <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a onclick="showSection('home')">Home</a></li>
+      <li><a onclick="showSection('about')">About</a></li>
+      <li><a onclick="showSection('projects')">Projects</a></li>
+      <li><a onclick="showSection('contact')">Contact</a></li>
     </ul>
   </nav>
 
-  <section id="home">
+  <section id="home" class="active">
     <h1>Yo, I'm Ankith 👊</h1>
-    <p>Building cool stuff on the web and leveling up</p>
+    <div class="content-box">
+      <p>Building cool stuff on the web and leveling up.</p>
+    </div>
   </section>
 
   <section id="about">
     <h2>About Me</h2>
-    <p>I’m a developer, photographer, and all-around creative mind. This site is my digital dojo where I drop my best work.</p>
+    <div class="content-box">
+      <p>I’m a developer, photographer, and all-around creative mind. This site is my digital dojo where I drop my best work.</p>
+    </div>
   </section>
 
   <section id="projects">
     <h2>Projects</h2>
-    <p>Coming soon... Get ready for some cool projects.</p>
+    <div class="content-box">
+      <p>Coming soon... Get ready for some cool projects.</p>
+    </div>
   </section>
 
   <section id="contact">
     <h2>Contact Me</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send</button>
-    </form>
+    <div class="content-box">
+      <form action="https://formspree.io/f/yourFormID" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
   </section>
+
+  <script>
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll("section");
+      sections.forEach((section) => {
+        section.classList.remove("active");
+      });
+      document.getElementById(sectionId).classList.add("active");
+      window.scrollTo(0, 0);
+    }
+  </script>
 </body>
 </html>
