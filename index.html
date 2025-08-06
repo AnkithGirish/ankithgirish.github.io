@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ankith Girish | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter&family=Raleway:wght@700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -13,22 +13,30 @@
     }
 
     body {
-      font-family: 'Orbitron', sans-serif;
+      font-family: 'Inter', sans-serif;
       background: #0a0a0a;
       color: #ffffff;
       scroll-behavior: smooth;
     }
 
+    /* NAVIGATION */
     nav {
       background: #111;
       padding: 1rem 2rem;
       display: flex;
-      justify-content: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+      justify-content: space-between;
+      align-items: center;
       position: fixed;
       top: 0;
       width: 100%;
       z-index: 1000;
+    }
+
+    nav .nav-title {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      color: #00ffcc;
+      font-size: 1.5rem;
     }
 
     nav ul {
@@ -49,6 +57,57 @@
       color: #fff;
     }
 
+    /* Hamburger styles */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background: #00ffcc;
+    }
+
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: #111;
+      position: fixed;
+      top: 60px;
+      right: 0;
+      width: 100%;
+      padding: 1rem;
+      gap: 1rem;
+      z-index: 999;
+    }
+
+    .mobile-nav a {
+      color: #00ffcc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .mobile-search {
+      padding: 0.5rem;
+      background: #1a1a1a;
+      border: none;
+      border-radius: 8px;
+      color: #00ffcc;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+
     section {
       display: none;
       height: 100vh;
@@ -66,6 +125,7 @@
     #contact { background: #222; }
 
     h1, h2 {
+      font-family: 'Raleway', sans-serif;
       font-size: 3rem;
       margin-bottom: 1.5rem;
       color: #00ffcc;
@@ -106,31 +166,45 @@
     }
 
     button {
-      padding: 0.75rem;
+      padding: 0.75rem 1.5rem;
       background: #00ffcc;
       border: none;
       color: #000;
-      font-weight: bold;
-      cursor: pointer;
-      border-radius: 8px;
-      transition: background 0.3s;
+      font-weight: 600;
+      border-radius: 6px;
+      transition: all 0.3s ease;
     }
 
     button:hover {
       background: #00c6a0;
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
 
   <nav>
+    <div class="nav-title">Ankith.dev</div>
     <ul>
       <li><a onclick="showSection('home')">Home</a></li>
       <li><a onclick="showSection('about')">About</a></li>
       <li><a onclick="showSection('projects')">Projects</a></li>
       <li><a onclick="showSection('contact')">Contact</a></li>
     </ul>
+    <div class="hamburger" onclick="toggleMobileMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a onclick="showSection('home'); toggleMobileMenu()">Home</a>
+    <a onclick="showSection('about'); toggleMobileMenu()">About</a>
+    <a onclick="showSection('projects'); toggleMobileMenu()">Projects</a>
+    <a onclick="showSection('contact'); toggleMobileMenu()">Contact</a>
+    <input class="mobile-search" type="text" placeholder="Search (coming soon)">
+  </div>
 
   <section id="home" class="active">
     <h1>Yo, I'm Ankith 👊</h1>
@@ -174,6 +248,12 @@
       document.getElementById(sectionId).classList.add("active");
       window.scrollTo(0, 0);
     }
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById("mobileNav");
+      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+    }
   </script>
+
 </body>
 </html>
