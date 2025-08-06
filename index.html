@@ -125,20 +125,21 @@
 
     .hero-text {
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
 
     .hero-image-wrapper {
       position: relative;
-      height: 100vh;
+      z-index: 1;
       overflow: hidden;
     }
 
     .hero-image-wrapper img {
       width: 100%;
-      height: auto;
-      object-fit: contain;
+      max-height: 80vh;
+      object-fit: cover;
       display: block;
+      filter: brightness(0.95);
     }
 
     #about { background: #181818; }
@@ -158,12 +159,14 @@
     }
 
     .content-box {
-      background: rgba(26, 26, 26, 0.9);
+      background: rgba(26, 26, 26, 0.95);
       padding: 2rem;
       border-radius: 12px;
       box-shadow: 0 0 10px rgba(0,255,204,0.1);
       max-width: 700px;
-      margin: 2rem auto;
+      margin: -5rem auto 2rem auto;
+      position: relative;
+      z-index: 3;
     }
 
     p {
@@ -229,12 +232,12 @@
   <section id="home" class="active">
     <div class="hero-text">
       <h1>Redesigning Mobility</h1>
-      <div class="content-box">
-        <p>The Spokeless Wheelchair Project is an innovative mobility solution focused on accessibility, compactness, and style — designed for independence and comfort.</p>
-      </div>
     </div>
     <div class="hero-image-wrapper">
       <img src="images/wheelchair-concept.jpg" alt="Wheelchair Drawing">
+    </div>
+    <div class="content-box">
+      <p>The Spokeless Wheelchair Project is an innovative mobility solution focused on accessibility, compactness, and style — designed for independence and comfort.</p>
     </div>
   </section>
 
@@ -248,8 +251,7 @@
   <section id="projects">
     <h2>Projects</h2>
     <div class="content-box">
-      <p>Presenting the spokeless wheelchair. An innovative solution to help non-ambulatory people move without additional help. The wheelchair has a hubless wheel system; the wheels are supported only by the outer tire and rotate around a stationary inner rim. This eliminates spoke-related hazards like entanglement of clothes and other injuries.
-      The design features quality-of-life improvements like storage bins and a tray table, along with an internal folding mechanism for easy transport and storage. It is designed to improve stability, mobility, and user comfort. </p>
+      <p>Presenting the spokeless wheelchair. An innovative solution to help non-ambulatory people move without additional help. The wheelchair has a hubless wheel system; the wheels are supported only by the outer tire and rotate around a stationary inner rim. This eliminates spoke-related hazards like entanglement of clothes and other injuries. The design features quality-of-life improvements like storage bins and a tray table, along with an internal folding mechanism for easy transport and storage. It is designed to improve stability, mobility, and user comfort.</p>
     </div>
   </section>
 
@@ -291,4 +293,3 @@
   </script>
 </body>
 </html>
-
