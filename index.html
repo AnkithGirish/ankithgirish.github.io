@@ -254,12 +254,17 @@
       menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
     }
     
-    // This is the new code to fix the bug
+    // This new code fixes the bug by checking the actual display style of the desktop menu
     window.addEventListener('resize', function() {
+        const desktopNav = document.querySelector('nav ul');
         const mobileNav = document.getElementById("mobileNav");
-        // Hide the mobile menu if the screen width is greater than 768px
-        if (window.innerWidth > 768) {
-            mobileNav.style.display = "none";
+        
+        // Use getComputedStyle to check the actual rendered CSS
+        const style = window.getComputedStyle(desktopNav);
+        
+        // If the desktop nav is visible (display is not 'none'), hide the mobile menu
+        if (style.display !== 'none') {
+            mobileNav.style.display = 'none';
         }
     });
   </script>
