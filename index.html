@@ -184,7 +184,7 @@
 <body>
 
   <nav>
-    <div class="nav-title">My Portfolio</div>
+    <div class="nav-title">Ankith.dev</div>
     <ul>
       <li><a onclick="showSection('home')">Home</a></li>
       <li><a onclick="showSection('about')">About</a></li>
@@ -253,8 +253,16 @@
       const menu = document.getElementById("mobileNav");
       menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
     }
+    
+    // This is the new code to fix the bug
+    window.addEventListener('resize', function() {
+        const mobileNav = document.getElementById("mobileNav");
+        // Hide the mobile menu if the screen width is greater than 768px
+        if (window.innerWidth > 768) {
+            mobileNav.style.display = "none";
+        }
+    });
   </script>
 
 </body>
 </html>
-
