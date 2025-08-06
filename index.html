@@ -123,19 +123,22 @@
       overflow: hidden;
     }
 
-    .hero-image {
-      width: 100%;
-      height: auto;
-      opacity: 0.2;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 0;
-    }
-
     .hero-text {
       position: relative;
       z-index: 1;
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .hero-image-wrapper img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
     }
 
     #about { background: #181818; }
@@ -224,12 +227,14 @@
   </div>
 
   <section id="home" class="active">
-    <img src="images/wheelchair-concept.jpg" alt="Wheelchair Drawing" class="hero-image">
     <div class="hero-text">
       <h1>Redesigning Mobility</h1>
       <div class="content-box">
         <p>The Spokeless Wheelchair Project is an innovative mobility solution focused on accessibility, compactness, and style — designed for independence and comfort.</p>
       </div>
+    </div>
+    <div class="hero-image-wrapper">
+      <img src="images/wheelchair-concept.jpg" alt="Wheelchair Drawing">
     </div>
   </section>
 
@@ -286,4 +291,3 @@
   </script>
 </body>
 </html>
-
