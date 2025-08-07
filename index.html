@@ -1,326 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ankith Girish | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter&family=Raleway:wght@700&display=swap" rel="stylesheet" />
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spokeless Wheelchair Project</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #000;
+            color: #D1FAE5;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #000000;
-      color: #ffffff;
-      scroll-behavior: smooth;
-    }
+        nav {
+            background-color: #000;
+            padding: 1rem;
+        }
 
-    nav {
-      background: #000000;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-    }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+            margin: 0;
+            padding: 0;
+        }
 
-    nav .nav-title {
-      font-family: 'Raleway', sans-serif;
-      font-weight: 700;
-      color: #00ffcc;
-      font-size: 1.5rem;
-    }
+        nav ul li a {
+            color: #D1FAE5;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-    nav ul {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
+        section {
+            padding: 3rem 1rem;
+        }
 
-    nav a {
-      color: #00ffcc;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-      cursor: pointer;
-    }
+        .section-heading {
+            font-size: 2rem;
+            border-bottom: 2px solid #D1FAE5;
+            margin-bottom: 1.5rem;
+        }
 
-    nav a:hover {
-      color: #fff;
-    }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            background-color: #111;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 20px #D1FAE5;
+        }
 
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 5px;
-    }
+        .text-box, .image-box {
+            flex: 1 1 400px;
+        }
 
-    .hamburger div {
-      width: 25px;
-      height: 3px;
-      background: #00ffcc;
-    }
+        .text-box p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
 
-    .mobile-nav {
-      display: none;
-      flex-direction: column;
-      background: #000000;
-      position: fixed;
-      top: 60px;
-      right: 0;
-      width: 100%;
-      padding: 1rem;
-      gap: 1rem;
-      z-index: 999;
-    }
+        .image-box img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 20px #D1FAE5;
+        }
 
-    .mobile-nav a {
-      color: #00ffcc;
-      text-decoration: none;
-      font-weight: bold;
-    }
+        .page-break {
+            border-top: 2px dashed #D1FAE5;
+            margin: 3rem 0;
+        }
 
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-      }
-      .hamburger {
-        display: flex;
-      }
-    }
-
-    section {
-      display: none;
-      min-height: 100vh;
-      padding: 6rem 2rem;
-      text-align: center;
-      background: #000000;
-    }
-
-    section.active {
-      display: block;
-    }
-
-    #home {
-      background: #000000;
-    }
-
-    .hero-text {
-      margin-bottom: 2rem;
-    }
-
-    .hero-content {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;  /* This is the key */
-      flex-wrap: wrap;
-      gap: 2rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .hero-content img {
-      max-width: 400px;
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-      flex-shrink: 0; /* prevent shrinking */
-      display: block;
-    }
-
-    .content-box {
-      background: rgba(26, 26, 26, 0.9);
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 
-        0 0 10px rgba(0, 255, 204, 0.3),
-        0 0 20px 4px rgba(0, 255, 204, 0.5);
-      max-width: 450px;
-      margin: 0;
-      flex: 1 1 450px; /* flex-grow, shrink, basis */
-      text-align: left;
-    }
-
-    hr {
-      border: none;
-      border-top: 2px dashed #00ffcc;
-      margin: 3rem auto;
-      width: 80%;
-      max-width: 900px;
-      opacity: 0.5;
-    }
-
-    p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      max-width: 500px;
-      margin: 2rem auto;
-    }
-
-    input,
-    textarea {
-      padding: 0.75rem;
-      border: none;
-      border-radius: 8px;
-      font-family: inherit;
-    }
-
-    button {
-      padding: 0.75rem 1.5rem;
-      background: #00ffcc;
-      border: none;
-      color: #000;
-      font-weight: 600;
-      border-radius: 6px;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #00c6a0;
-      transform: scale(1.05);
-    }
-  </style>
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <nav>
-    <div class="nav-title">Spokeless Wheelchair</div>
-    <ul>
-      <li><a onclick="showSection('home')">Home</a></li>
-      <li><a onclick="showSection('about')">About</a></li>
-      <li><a onclick="showSection('concept')">Concept</a></li>
-      <li><a onclick="showSection('development')">Development</a></li>
-      <li><a onclick="showSection('contact')">Contact</a></li>
-    </ul>
-    <div class="hamburger" onclick="toggleMobileMenu()">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </nav>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-  <div class="mobile-nav" id="mobileNav">
-    <a onclick="showSection('home'); toggleMobileMenu()">Home</a>
-    <a onclick="showSection('about'); toggleMobileMenu()">About</a>
-    <a onclick="showSection('concept'); toggleMobileMenu()">Concept</a>
-    <a onclick="showSection('development'); toggleMobileMenu()">Development</a>
-    <a onclick="showSection('contact'); toggleMobileMenu()">Contact</a>
-  </div>
+    <section id="home">
+        <div class="section-heading">Redesigning Mobility</div>
+        <div class="container">
+            <div class="text-box">
+                <p>A novel spokeless wheelchair that reduces injuries related to spokes and improves quality of life for users. Designed with a hubless wheel system and integrated features for daily convenience and safety.</p>
+            </div>
+            <div class="image-box">
+                <img src="chair_1_11zon.png" alt="Spokeless Wheelchair Concept">
+            </div>
+        </div>
 
-  <section id="home" class="active">
-    <div class="hero-text">
-      <h1>Redesigning Mobility</h1>
-    </div>
+        <div class="page-break"></div>
 
-    <div class="hero-content">
-      <div class="content-box">
-        <p>
-          The Spokeless Wheelchair Project is an innovative mobility solution focused on accessibility,
-          compactness, and style — designed for independence and comfort.
-        </p>
-      </div>
-      <img src="images/chair_1_11zon.png" alt="Chair Image" />
-    </div>
-
-    <hr />
-
-    <div class="hero-content">
-      <div class="content-box">
-        <p>
-          This novel spokeless wheelchair that reduces injuries related to spokes. The wheelchair has a
-          hubless wheel system; the wheels are supported only by the outer tire and rotate around a stationary
-          inner rim. This eliminates spoke-related hazards like entanglement and other injuries. The wheelchair
-          also features quality-of-life improvements like storage bins, tray table, along with an internal folding
-          mechanism for easy transport and storage. It is designed to improve stability, mobility, and user
-          comfort. To enhance stability, the wheels are tilted outward at approximately 10 degrees, effectively
-          lowering the center of mass. This improves stability at high speeds, such as going down a ramp. It
-          also optimizes propulsion, letting users move with minimal energy. A brake is placed near the wheel
-          and activated by moving the handle forward. Push handles, a detachable tray table, and storage bins
-          within the hollow wheel provide convenience—without compromising the wheelchair’s minimalist, modern
-          design.
-        </p>
-      </div>
-      <img src="images/wheelchair-concept.jpg" alt="Wheelchair Drawing" />
-    </div>
-  </section>
-
-  <section id="about">
-    <h2>About Ankith Girish</h2>
-    <div class="content-box">
-      <p>I’m a developer, photographer, and all-around creative mind. This site is my digital dojo where I drop my best work.</p>
-    </div>
-  </section>
-
-  <section id="concept">
-    <h2>Projects</h2>
-    <div class="content-box">
-      <p>
-        Presenting the spokeless wheelchair. An innovative solution to help non-ambulatory people move without additional help.
-        The wheelchair has a hubless wheel system; the wheels are supported only by the outer tire and rotate around a stationary
-        inner rim. This eliminates spoke-related hazards like entanglement of clothes and other injuries. The design features quality-of-life
-        improvements like storage bins and a tray table, along with an internal folding mechanism for easy transport and storage.
-        It is designed to improve stability, mobility, and user comfort.
-      </p>
-    </div>
-  </section>
-
-  <section id="development">
-    <h2>Development</h2>
-    <div class="content-box">
-      <p>This is the place where the detailed explanation of how this wheelchair came to life will go.</p>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <div class="content-box">
-      <form action="https://formspree.io/f/yourFormID" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit">Send</button>
-      </form>
-    </div>
-  </section>
-
-  <script>
-    function showSection(sectionId) {
-      const sections = document.querySelectorAll('section');
-      sections.forEach((section) => {
-        section.classList.remove('active');
-      });
-      document.getElementById(sectionId).classList.add('active');
-      window.scrollTo(0, 0);
-    }
-
-    function toggleMobileMenu() {
-      const menu = document.getElementById('mobileNav');
-      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-    }
-
-    window.addEventListener('resize', function () {
-      const desktopNav = document.querySelector('nav ul');
-      const mobileNav = document.getElementById('mobileNav');
-      const style = window.getComputedStyle(desktopNav);
-      if (style.display !== 'none') {
-        mobileNav.style.display = 'none';
-      }
-    });
-  </script>
+        <div class="container">
+            <div class="text-box">
+                <p>This novel spokeless wheelchair that reduces injuries related to spokes. The wheelchair has a hubless wheel system; the wheels are supported only by the outer tire and rotate around a stationary inner rim. This eliminates spoke-related hazards like entanglement and other injuries. The wheelchair also features quality-of-life improvements like storage bins, tray table, along with an internal folding mechanism for easy transport and storage. It is designed to improve stability, mobility, and user comfort. To enhance stability, the wheels are tilted outward at approximately 10 degrees, effectively lowering the center of mass. This improves stability at high speeds, such as going down a ramp. It also optimizes propulsion, letting users move with minimal energy. A brake is placed near the wheel and activated by moving the handle forward. Push handles, a detachable tray table, and storage bins within the hollow wheel provide convenience—without compromising the wheelchair’s minimalist, modern design.</p>
+            </div>
+            <div class="image-box">
+                <img src="wheelchair-concept.jpeg" alt="Spokeless Wheelchair Details">
+            </div>
+        </div>
+    </section>
 </body>
+
 </html>
