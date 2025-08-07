@@ -3,311 +3,124 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ankith Girish | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter&family=Raleway:wght@700&display=swap" rel="stylesheet">
+  <title>Redesigning Mobility</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
-      font-family: 'Inter', sans-serif;
-      background: #000000;
-      color: #ffffff;
-      scroll-behavior: smooth;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #eee;
     }
 
     nav {
-      background: #000000;
-      padding: 1rem 2rem;
+      background-color: #000;
+      padding: 1em;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-    }
-
-    nav .nav-title {
-      font-family: 'Raleway', sans-serif;
-      font-weight: 700;
-      color: #00ffcc;
-      font-size: 1.5rem;
-    }
-
-    nav ul {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
+      border-bottom: 1px solid #0f0;
     }
 
     nav a {
-      color: #00ffcc;
+      color: #0f0;
       text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-      cursor: pointer;
+      margin: 0 1em;
     }
 
-    nav a:hover {
-      color: #fff;
-    }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 5px;
-    }
-
-    .hamburger div {
-      width: 25px;
-      height: 3px;
-      background: #00ffcc;
-    }
-
-    .mobile-nav {
-      display: none;
-      flex-direction: column;
-      background: #000000;
-      position: fixed;
-      top: 60px;
-      right: 0;
-      width: 100%;
-      padding: 1rem;
-      gap: 1rem;
-      z-index: 999;
-    }
-
-    .mobile-nav a {
-      color: #00ffcc;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-      }
-      .hamburger {
-        display: flex;
-      }
-    }
-
-    section {
-      display: none;
-      min-height: 100vh;
-      padding: 6rem 2rem;
+    header {
+      padding: 2em;
       text-align: center;
-      background: #000000;
+      border-bottom: 2px solid #0f0;
     }
 
-    section.active {
-      display: block;
+    header h1 {
+      font-size: 2.5em;
+      color: #0f0;
     }
 
-    #home {
-      background: #000000;
+    .section {
+      padding: 2em;
+      border-bottom: 2px solid #0f0;
     }
 
-    .hero-text {
-      margin-bottom: 2rem;
+    .section h2 {
+      font-size: 2em;
+      color: #0f0;
+      border-bottom: 1px dashed #0f0;
+      margin-bottom: 1em;
+      text-align: center;
     }
 
-    .hero-content {
+    .box-container {
       display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
       flex-wrap: wrap;
-      gap: 2rem;
+      justify-content: center;
+      gap: 2em;
+      align-items: stretch;
     }
 
-    .hero-content img {
-      max-width: 400px;
+    .text-box, .image-box {
+      background-color: #111;
+      padding: 1.5em;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #0f0;
+      flex: 1 1 400px;
+      max-width: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .image-box img {
       width: 100%;
       height: auto;
       border-radius: 12px;
+      object-fit: cover;
     }
 
-    #about, #concept, #development, #contact {
-      background: #000000;
-    }
-
-    h1, h2 {
-      font-family: 'Raleway', sans-serif;
-      font-size: 3rem;
-      margin-bottom: 1.5rem;
-      color: #00ffcc;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      border-bottom: 2px solid #00ffcc;
-      display: inline-block;
-      padding-bottom: 0.5rem;
-    }
-
-    .content-box {
-      background: rgba(26, 26, 26, 0.9);
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 
-        0 0 10px rgba(0, 255, 204, 0.3),
-        0 0 20px 4px rgba(0, 255, 204, 0.5);
-      max-width: 700px;
-      margin: 0 auto;
-      flex: 1;
-    }
-
-    hr {
-      border: none;
-      border-top: 2px dashed #00ffcc;
-      margin: 2rem auto;
-      width: 80%;
-      max-width: 700px;
-      opacity: 0.5;
-    }
-
-    p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      max-width: 500px;
-      margin: 2rem auto;
-    }
-
-    input, textarea {
-      padding: 0.75rem;
-      border: none;
-      border-radius: 8px;
-      font-family: inherit;
-    }
-
-    button {
-      padding: 0.75rem 1.5rem;
-      background: #00ffcc;
-      border: none;
-      color: #000;
-      font-weight: 600;
-      border-radius: 6px;
-      transition: all 0.3s ease;
-    }
-
-    button:hover {
-      background: #00c6a0;
-      transform: scale(1.05);
+    @media (max-width: 768px) {
+      .box-container {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
 <body>
   <nav>
-    <div class="nav-title">Spokeless Wheelchair</div>
-    <ul>
-      <li><a onclick="showSection('home')">Home</a></li>
-      <li><a onclick="showSection('about')">About</a></li>
-      <li><a onclick="showSection('concept')">Concept</a></li>
-      <li><a onclick="showSection('development')">Development</a></li>
-      <li><a onclick="showSection('contact')">Contact</a></li>
-    </ul>
-    <div class="hamburger" onclick="toggleMobileMenu()">
-      <div></div>
-      <div></div>
-      <div></div>
+    <div><strong>MobilityX</strong></div>
+    <div>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </div>
   </nav>
 
-  <div class="mobile-nav" id="mobileNav">
-    <a onclick="showSection('home'); toggleMobileMenu()">Home</a>
-    <a onclick="showSection('about'); toggleMobileMenu()">About</a>
-    <a onclick="showSection('concept'); toggleMobileMenu()">Concept</a>
-    <a onclick="showSection('development'); toggleMobileMenu()">Development</a>
-    <a onclick="showSection('contact'); toggleMobileMenu()">Contact</a>
-  </div>
+  <header id="home">
+    <h1>Redesigning Mobility</h1>
+  </header>
 
-  <section id="home" class="active">
-    <div class="hero-text">
-      <h1>Redesigning Mobility</h1>
-    </div>
-    <div class="hero-content">
-      <div class="content-box">
-        <p>The Spokeless Wheelchair Project is an innovative mobility solution focused on accessibility, compactness, and style — designed for independence and comfort.</p>
+  <section class="section">
+    <div class="box-container">
+      <div class="text-box">
+        <p>This novel spokeless wheelchair reduces injuries related to spokes. The wheelchair has a hubless wheel system; the wheels are supported only by the outer tire and rotate around a stationary inner rim. This eliminates spoke-related hazards like entanglement and other injuries. The wheelchair also features quality-of-life improvements like storage bins, tray table, along with an internal folding mechanism for easy transport and storage. It is designed to improve stability, mobility, and user comfort.</p>
       </div>
-      <img src="images/chair_1_11zon.png" alt="Chair Image">
-    </div>
-    <hr>
-    <div class="hero-content" style="justify-content: center; gap: 2rem;">
-      <div class="content-box" style="max-width: 700px; margin: 0;">
-        <p>
-          This novel spokeless wheelchair that reduces injuries related to spokes. The wheelchair has a hubless wheel system; the wheels are supported only by the outer tire and rotate around a stationary inner rim. This eliminates spoke-related hazards like entanglement and other injuries. The wheelchair also features quality-of-life improvements like storage bins, tray table, along with an internal folding mechanism for easy transport and storage. It is designed to improve stability, mobility, and user comfort. To enhance stability, the wheels are tilted outward at approximately 10 degrees, effectively lowering the center of mass. This improves stability at high speeds, such as going down a ramp. It also optimizes propulsion, letting users move with minimal energy. A brake is placed near the wheel and activated by moving the handle forward. Push handles, a detachable tray table, and storage bins within the hollow wheel provide convenience—without compromising the wheelchair’s minimalist, modern design.
-        </p>
+      <div class="image-box">
+        <img src="chair_1_11zon.png" alt="Chair concept" />
       </div>
-      <img src="images/wheelchair-concept.jpg" alt="Wheelchair Drawing" style="max-width: 400px; width: 100%; height: auto; border-radius: 12px;">
     </div>
   </section>
 
-  <section id="about">
-    <h2>About Ankith Girish</h2>
-    <div class="content-box">
-      <p>I’m a developer, photographer, and all-around creative mind. This site is my digital dojo where I drop my best work.</p>
+  <section class="section">
+    <h2>More About the Design</h2>
+    <div class="box-container">
+      <div class="text-box">
+        <p>To enhance stability, the wheels are tilted outward at approximately 10 degrees, effectively lowering the center of mass. This improves stability at high speeds, such as going down a ramp. It also optimizes propulsion, letting users move with minimal energy. A brake is placed near the wheel and activated by moving the handle forward. Push handles, a detachable tray table, and storage bins within the hollow wheel provide convenience—without compromising the wheelchair’s minimalist, modern design.</p>
+      </div>
+      <div class="image-box">
+        <img src="wheelchair-concept.jpeg" alt="Wheelchair concept" />
+      </div>
     </div>
   </section>
-
-  <section id="concept">
-    <h2>Projects</h2>
-    <div class="content-box">
-      <p>Presenting the spokeless wheelchair. An innovative solution to help non-ambulatory people move without additional help. The wheelchair has a hubless wheel system; the wheels are supported only by the outer tire and rotate around a stationary inner rim. This eliminates spoke-related hazards like entanglement of clothes and other injuries. The design features quality-of-life improvements like storage bins and a tray table, along with an internal folding mechanism for easy transport and storage. It is designed to improve stability, mobility, and user comfort.</p>
-    </div>
-  </section>
-
-  <section id="development">
-    <h2>Development</h2>
-    <div class="content-box">
-      <p>This is the place where the detailed explanation of how this wheelchair came to life will go.</p>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <div class="content-box">
-      <form action="https://formspree.io/f/yourFormID" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit">Send</button>
-      </form>
-    </div>
-  </section>
-
-  <script>
-    function showSection(sectionId) {
-      const sections = document.querySelectorAll("section");
-      sections.forEach((section) => {
-        section.classList.remove("active");
-      });
-      document.getElementById(sectionId).classList.add("active");
-      window.scrollTo(0, 0);
-    }
-
-    function toggleMobileMenu() {
-      const menu = document.getElementById("mobileNav");
-      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
-    }
-
-    window.addEventListener('resize', function() {
-      const desktopNav = document.querySelector('nav ul');
-      const mobileNav = document.getElementById("mobileNav");
-      const style = window.getComputedStyle(desktopNav);
-      if (style.display !== 'none') {
-        mobileNav.style.display = 'none';
-      }
-    });
-  </script>
 </body>
 </html>
