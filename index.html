@@ -5,206 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ankith Girish | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter&family=Raleway:wght@700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #000000;
-      color: #ffffff;
-      scroll-behavior: smooth;
-    }
-
-    nav {
-      background: #000000;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-    }
-
-    nav .nav-title {
-      font-family: 'Raleway', sans-serif;
-      font-weight: 700;
-      color: #00ffcc;
-      font-size: 1.5rem;
-    }
-
-    nav ul {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    nav a {
-      color: #00ffcc;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-      cursor: pointer;
-    }
-
-    nav a:hover {
-      color: #fff;
-    }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 5px;
-    }
-
-    .hamburger div {
-      width: 25px;
-      height: 3px;
-      background: #00ffcc;
-    }
-
-    .mobile-nav {
-      display: none;
-      flex-direction: column;
-      background: #000000;
-      position: fixed;
-      top: 60px;
-      right: 0;
-      width: 100%;
-      padding: 1rem;
-      gap: 1rem;
-      z-index: 999;
-    }
-
-    .mobile-nav a {
-      color: #00ffcc;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-      }
-      .hamburger {
-        display: flex;
-      }
-    }
-
-    section {
-      display: none;
-      min-height: 100vh;
-      padding: 6rem 2rem;
-      text-align: center;
-      background: #000000;
-    }
-
-    section.active {
-      display: block;
-    }
-
-    #home {
-      background: #000000;
-    }
-
-    .hero-text {
-      margin-bottom: 2rem;
-    }
-
-    .hero-content {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-
-    .hero-content img {
-      max-width: 400px;
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-    }
-
-    #about, #concept, #development, #contact {
-      background: #000000;
-    }
-
-    h1, h2 {
-      font-family: 'Raleway', sans-serif;
-      font-size: 3rem;
-      margin-bottom: 1.5rem;
-      color: #00ffcc;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      border-bottom: 2px solid #00ffcc;
-      display: inline-block;
-      padding-bottom: 0.5rem;
-    }
-
-    .content-box {
-      background: rgba(26, 26, 26, 0.9);
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 
-        0 0 10px rgba(0, 255, 204, 0.3),
-        0 0 20px 4px rgba(0, 255, 204, 0.5);
-      max-width: 700px;
-      margin: 0 auto;
-      flex: 1;
-    }
-
-    hr {
-      border: none;
-      border-top: 2px dashed #00ffcc;
-      margin: 2rem auto;
-      width: 80%;
-      max-width: 700px;
-      opacity: 0.5;
-    }
-
-    p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      max-width: 500px;
-      margin: 2rem auto;
-    }
-
-    input, textarea {
-      padding: 0.75rem;
-      border: none;
-      border-radius: 8px;
-      font-family: inherit;
-    }
-
-    button {
-      padding: 0.75rem 1.5rem;
-      background: #00ffcc;
-      border: none;
-      color: #000;
-      font-weight: 600;
-      border-radius: 6px;
-      transition: all 0.3s ease;
-    }
-
-    button:hover {
-      background: #00c6a0;
-      transform: scale(1.05);
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <nav>
@@ -245,7 +46,7 @@
     <div class="hero-content" style="justify-content: center; gap: 2rem;">
       <div class="content-box" style="max-width: 700px; margin: 0;">
         <p>
-          This novel spokeless wheelchair reduces injuries related to spokes. The wheelchair has a hubless wheel system; the wheels are supported only by the outer tire and rotate around a stationary inner rim. It eliminates spoke-related hazards like entanglement and other injuries. The wheelchair also features quality-of-life improvements like storage bins, tray-table, along with an internal folding mechanism for easy transport and storage. To enhance stability, the wheels are tilted outward at approximately 10 degrees, effectively lowering the center of mass. This improves stability at high speeds, such as going down a ramp. It also optimizes propulsion, letting users move with minimal energy. It is designed to improve stability, mobility, and user comfort. A brake is placed near the wheel and can be activated by moving the handle forward. Push handles, a detachable tray table, and storage bins within the hollow wheel provide convenience—without compromising the wheelchair’s minimalist, modern design.
+          This novel spokeless wheelchair reduces injuries related to spokes...
         </p>
       </div>
       <img src="images/wheelchair-concept.jpg" alt="Wheelchair Drawing" style="max-width: 400px; width: 100%; height: auto; border-radius: 12px;">
@@ -260,21 +61,21 @@
   <section id="concept">
     <h2>Projects</h2>
     <div class="content-box">
-      <p>Presenting the spokeless wheelchair. An innovative solution to help non-ambulatory people move without additional help. The wheelchair has a hubless wheel system; the wheels are supported only by the outer tire and rotate around a stationary inner rim. This eliminates spoke-related hazards like entanglement of clothes and other injuries. The design features quality-of-life improvements like storage bins and a tray table, along with an internal folding mechanism for easy transport and storage. It is designed to improve stability, mobility, and user comfort.</p>
+      <p>Presenting the spokeless wheelchair...</p>
     </div>
   </section>
 
   <section id="development">
     <h2>Development</h2>
     <div class="content-box">
-      <p>This is the place where the detailed explanation of how this wheelchair came to life will go.</p>
+      <p>This is the place where the detailed explanation...</p>
     </div>
   </section>
 
   <section id="about">
     <h2>About Ankith Girish</h2>
     <div class="content-box">
-      <p>I’m a developer, photographer, and all-around creative mind. This site is my digital dojo where I drop my best work.</p>
+      <p>I’m a developer, photographer, and all-around creative mind...</p>
     </div>
   </section>
 
@@ -290,31 +91,6 @@
     </div>
   </section>
 
-  <script>
-    function showSection(sectionId) {
-      const sections = document.querySelectorAll("section");
-      sections.forEach((section) => {
-        section.classList.remove("active");
-      });
-      document.getElementById(sectionId).classList.add("active");
-      window.scrollTo(0, 0);
-    }
-
-    function toggleMobileMenu() {
-      const menu = document.getElementById("mobileNav");
-      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
-    }
-
-    window.addEventListener('resize', function() {
-      const desktopNav = document.querySelector('nav ul');
-      const mobileNav = document.getElementById("mobileNav");
-      const style = window.getComputedStyle(desktopNav);
-      if (style.display !== 'none') {
-        mobileNav.style.display = 'none';
-      }
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
-
-
