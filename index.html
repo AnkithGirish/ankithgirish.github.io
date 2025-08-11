@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ankith Girish | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter&family=Raleway:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<!--  <link href="https://fonts.googleapis.com/css2?family=Inter&family=Raleway:wght@700&display=swap" rel="stylesheet">-->
+  <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
   <nav>
@@ -90,8 +90,31 @@
       </form>
     </div>
   </section>
+<script>
+  function showSection(sectionId) {
+  const sections = document.querySelectorAll("section");
+  sections.forEach((section) => {
+    section.classList.remove("active");
+  });
+  document.getElementById(sectionId).classList.add("active");
+  window.scrollTo(0, 0);
+}
 
-  <script src="script.js"></script>
+function toggleMobileMenu() {
+  const menu = document.getElementById("mobileNav");
+  menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+}
+
+window.addEventListener('resize', function() {
+  const desktopNav = document.querySelector('nav ul');
+  const mobileNav = document.getElementById("mobileNav");
+  const style = window.getComputedStyle(desktopNav);
+  if (style.display !== 'none') {
+    mobileNav.style.display = 'none';
+  }
+});
+</script>
 </body>
 </html>
+
 
